@@ -28,15 +28,26 @@ public class HelloController {
 //Notice in the above example we also used the @RequestMapping annotation, which is just the longer version of @GetMapping. There, of course, also exists a @PostMapping annotation that tells the controller to respond to POST requests.
 
 
+    //Example of Receiving and Sending Data
     @GetMapping("/join")
     public String showJoinForm() {
         return "join";
     }
+
     @PostMapping("/join")
     public String joinCohort(@RequestParam(name = "cohort") String cohort, Model model) {
         model.addAttribute("cohort", "Welcome to " + cohort + "!");
         return "join";
     }
+
+    //Passing a collection of data
+    @GetMapping("/greek-gods")
+    public String showGreekGods(Model model) {
+        String[] names = {"Zeus", "Hercules", "Hades", "Apollo"};
+        model.addAttribute("greekGods", names);
+        return "greekGods";
+    }
+
 
 
 }

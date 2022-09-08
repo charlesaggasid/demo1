@@ -3,16 +3,18 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Your</title>
+	<title>Greek Gods Lecture</title>
 	<th:block th:include="partials/bootstrap :: styling"></th:block>
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 <h1 class="text-center">Hello, world!</h1>
-<p>
-	This is the ID.
-	<span th:text="${id}">id</span>
-</p>
+
+<!--Iterate through collection and display each string in an LI element-->
+<ul>
+	<li th:each="greekGod : ${greekGods}" th:text="${greekGod}"></li>
+</ul>
+
 <footer th:replace="partials/footer :: footer"></footer>
 <th:block th:include="partials/bootstrap :: scripts"></th:block>
 </body>
