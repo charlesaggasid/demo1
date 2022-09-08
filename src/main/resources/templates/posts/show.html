@@ -8,11 +8,18 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
+
 <h1 class="text-center">Hello, world!</h1>
-<p>
-	This is the ID.
-	<span th:text="${id}">id</span>
-</p>
+
+<div class="card" style="width: 18rem;">
+	<div class="card-body">
+		<h5>This is the Post ID number. <br><span th:text="${singlePost.getId()}">id</span>
+		</h5>
+		<h5 class="card-title" th:text="${singlePost.getTitle()}">Card title</h5>
+		<p class="card-text" th:text="${singlePost.getBody()}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+	</div>
+</div>
+
 <footer th:replace="partials/footer :: footer"></footer>
 <th:block th:include="partials/bootstrap :: scripts"></th:block>
 </body>
